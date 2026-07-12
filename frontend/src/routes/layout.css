@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/*
+ * Tabllet 디자인 토큰 (Tailwind v4 @theme).
+ *
+ * 의료/건강 서비스의 신뢰감을 위해 teal/mint 계열을 메인(brand)으로 사용한다.
+ * 정보 직관성을 위해 보충 권장(positive)은 블루, 주의(caution)는 주황/적색 계열로
+ * 명확히 대비시킨다 (CLAUDE.md 디자인 가이드라인).
+ */
+@theme {
+	--font-sans:
+		'Pretendard', 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+		'Segoe UI', 'Malgun Gothic', sans-serif;
+
+	/* Brand — teal/mint */
+	--color-brand-50: #f0fdfa;
+	--color-brand-100: #ccfbf1;
+	--color-brand-200: #99f6e4;
+	--color-brand-300: #5eead4;
+	--color-brand-400: #2dd4bf;
+	--color-brand-500: #14b8a6;
+	--color-brand-600: #0d9488;
+	--color-brand-700: #0f766e;
+	--color-brand-800: #115e59;
+	--color-brand-900: #134e4a;
+
+	/* Positive — 보충이 필요한 영양소 (블루) */
+	--color-positive-50: #eff6ff;
+	--color-positive-100: #dbeafe;
+	--color-positive-200: #bfdbfe;
+	--color-positive-300: #93c5fd;
+	--color-positive-400: #60a5fa;
+	--color-positive-500: #3b82f6;
+	--color-positive-600: #2563eb;
+	--color-positive-700: #1d4ed8;
+
+	/* Caution — 주의가 필요한 영양소 (주황/적색) */
+	--color-caution-50: #fff7ed;
+	--color-caution-100: #ffedd5;
+	--color-caution-200: #fed7aa;
+	--color-caution-300: #fdba74;
+	--color-caution-400: #fb923c;
+	--color-caution-500: #f97316;
+	--color-caution-600: #ea580c;
+	--color-caution-700: #c2410c;
+
+	/* 중립 배경 — 순백 + 밝은 회색 */
+	--color-surface: #ffffff;
+	--color-canvas: #f3f4f6;
+}
+
+@layer base {
+	html {
+		background-color: var(--color-canvas);
+		color: var(--color-gray-800);
+		-webkit-tap-highlight-color: transparent;
+		text-size-adjust: 100%;
+	}
+
+	body {
+		min-height: 100dvh;
+		font-family: var(--font-sans);
+		overscroll-behavior-y: none;
+	}
+
+	/* 데스크톱 창에서도 모바일 앱 느낌을 유지하기 위해 본문 폭을 제한한다. */
+	:focus-visible {
+		outline: 2px solid var(--color-brand-500);
+		outline-offset: 2px;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: var(--color-gray-300);
+		border-radius: 9999px;
+		border: 2px solid transparent;
+		background-clip: content-box;
+	}
+}

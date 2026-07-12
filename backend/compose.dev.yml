@@ -1,0 +1,30 @@
+# Development override. Usage:
+#   docker compose -f compose.yml -f compose.dev.yml up --build
+#
+# Bind-mounts the source for hot reload (Django's runserver auto-restarts on
+# file changes) and runs with DEBUG enabled.
+
+services:
+  db:
+    # Publish Postgres to the host for local DB tooling.
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+
+  backend:
+    build:
+      target: runtime
+    environment:
+      DJANGO_DEBUG: "True"
+      DJANGO_ALLOWED_HOSTS: "*"
+    # runserver watches the source and reloads automatically.
+    command: >
+      sh -c "python manage.py migrate --noinput &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      # Live source mount for hot reload.
+      - .:/app
+      # Keep the image's virtualenv; don't let the bind mount shadow it.
+      - /app/.venv
+    # runserver does StatReloader file watching; no extra healthcheck overhead.
+    healthcheck:
+      disable: true

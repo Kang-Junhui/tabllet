@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  백엔드가 평문(http) Tailscale 주소라 cleartext 통신을 허용한다.
+  테스트/내부망 빌드용 — 운영에서 HTTPS 백엔드로 바꾸면 이 설정을 제거하거나
+  특정 도메인만 허용하도록 좁히는 것을 권장한다.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

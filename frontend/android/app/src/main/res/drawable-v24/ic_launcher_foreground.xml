@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tabllet 런처 아이콘 전경: 흰 캡슐(알약)이 테이블 위에 놓인 마크 (table + tablet).
+     minSdk=24 라 drawable-v24 가 우선되므로 여기에 둔다. 배경 teal 위에 합성됨. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 캡슐 (알약) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40.5,24 L67.5,24 A8.5,8.5 0 0 1 67.5,41 L40.5,41 A8.5,8.5 0 0 1 40.5,24 Z" />
+
+    <!-- 테이블 상판 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30.5,46 L77.5,46 A3.5,3.5 0 0 1 77.5,53 L30.5,53 A3.5,3.5 0 0 1 30.5,46 Z" />
+
+    <!-- 바깥 다리 2개 -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.8"
+        android:strokeLineCap="round"
+        android:pathData="M33,53 L26,84" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6.8"
+        android:strokeLineCap="round"
+        android:pathData="M75,53 L82,84" />
+
+    <!-- 가로대 -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5.8"
+        android:strokeLineCap="round"
+        android:pathData="M30,68 L78,68" />
+
+    <!-- 캡슐 분할선 + 점 (배경 teal과 같은 색으로 그려 캡슐에 음각 효과) -->
+    <path
+        android:strokeColor="#0E7490"
+        android:strokeWidth="2.6"
+        android:strokeLineCap="round"
+        android:pathData="M54,26 L54,39" />
+    <path
+        android:fillColor="#0E7490"
+        android:pathData="M61.8,29 a2.2,2.2 0 1 0 4.4,0 a2.2,2.2 0 1 0 -4.4,0 Z" />
+</vector>
