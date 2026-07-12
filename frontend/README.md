@@ -43,6 +43,3 @@ pnpm check        # svelte-check 타입 검사
 pnpm build        # 정적 SPA 빌드 → build/
 pnpm preview      # 빌드 결과 미리보기
 ```
-
-> Electron 패키징은 추후 별도 단계에서 추가한다 (`adapter-static` 출력 `build/` 를
-> 데스크톱 셸에서 로드하는 방식).
